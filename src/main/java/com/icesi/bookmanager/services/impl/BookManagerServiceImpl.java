@@ -1,12 +1,23 @@
-package com.icesi.bookmanager.persistence.repositories.impl;
+package com.icesi.bookmanager.services.impl;
 
 import com.icesi.bookmanager.persistence.model.Author;
 import com.icesi.bookmanager.persistence.model.Book;
 import com.icesi.bookmanager.persistence.repositories.IBookManagerRepository;
+import com.icesi.bookmanager.services.IBookManagerService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-public class IBookManagerRepositoryImpl implements IBookManagerRepository {
+@Service
+public class BookManagerServiceImpl implements IBookManagerService {
+
+   @Autowired
+    private IBookManagerRepository repository;
+
+    public BookManagerServiceImpl(IBookManagerRepository repository) {
+        this.repository = repository;
+    }
 
     @Override
     public List<Book> listAllBooks() {
