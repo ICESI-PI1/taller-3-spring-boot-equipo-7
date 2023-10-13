@@ -12,7 +12,7 @@ import java.util.List;
 @Service
 public class BookManagerServiceImpl implements IBookManagerService {
 
-   @Autowired
+    @Autowired
     private IBookManagerRepository repository;
 
     public BookManagerServiceImpl(IBookManagerRepository repository) {
@@ -21,31 +21,53 @@ public class BookManagerServiceImpl implements IBookManagerService {
 
     @Override
     public List<Book> listAllBooks() {
-        return null;
+        return repository.listAllBooks();
     }
 
     @Override
     public List<Author> listAllAuthors() {
-        return null;
+        return repository.listAllAuthors();
     }
 
     @Override
     public Book getBookById(Long id) {
-        return null;
+        return repository.getBookById(id);
+    }
+    @Override
+    public Book createBook(Book book) {
+        return repository.createBook(book);
+    }
+    @Override
+    public Book updateBook(Long id, Book updatedBook) {
+        return repository.updateBook(id, updatedBook);
     }
 
     @Override
     public Author getAuthorById(Long id) {
-        return null;
+        return repository.getAuthorById(id);
+    }
+    @Override
+    public Author createAuthor(Author author) {
+        return repository.createAuthor(author);
+    }
+
+    @Override
+    public Author updateAuthor(Long id, Author updatedAuthor) {
+        return repository.updateAuthor(id, updatedAuthor);
     }
 
     @Override
     public Boolean deleteBook(Long id) {
-        return null;
+        return repository.deleteBook(id);
     }
 
     @Override
     public Boolean deleteAuthor(Long id) {
-        return null;
+        return repository.deleteAuthor(id);
     }
+    @Override
+    public List<Book> getBooksByAuthor(Long id) {
+        return repository.getBooksByAuthor(id);
+    }
+
 }
